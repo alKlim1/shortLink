@@ -1,14 +1,15 @@
 import React from "react";
 import axios from "axios";
 import "./kak-nibyd.css";
+import Diagramm from "./Diagramm";
 export default function Form() {
     const [code, setCode] = React.useState("")
     const [link, setLink] = React.useState("")
     const [shortLink, setShortLink] = React.useState("")
     const sendData = () => {
      // setShortLink("abc")
-        axios.post("https://024d-46-22-56-178.ngrok-free.app/s",{code:code,fullLink:link}).then(response=> {
-         setShortLink("https://024d-46-22-56-178.ngrok-free.app/s/"+response.data.code)
+        axios.post("https://short.alov.dev/s",{code:code,fullLink:link}).then(response=> {
+         setShortLink("https://short.alov.dev/s/"+response.data.code)
         })
     }
     return (
@@ -28,6 +29,9 @@ export default function Form() {
                     {shortLink}
                     </a>
                 </div>
+            </div>
+            <div className="Diagramm">
+                <Diagramm></Diagramm> 
             </div>
         </div>
     )
